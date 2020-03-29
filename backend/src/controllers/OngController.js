@@ -1,3 +1,4 @@
+const generateUniqueId = require('../utils/generateUniqueId');
 const crypto = require('crypto');
 
 //importa conexão com o banco de dados
@@ -18,7 +19,7 @@ module.exports = {
     //descontrução da variável (no lugar de apenas data)
     const { name, email, whatsapp, city, uf } = request.body;
 
-    const id = crypto.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     //ao chegar neste código ele irá esperar a finalização
     //para entao realizar o return

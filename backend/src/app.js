@@ -4,6 +4,8 @@ const express = require('express');
 //cors: determina quem pode acessar a aplicação
 const cors = require('cors');
 
+const { errors} = require('celebrate');
+
 //importar rotas de outro arquivo
 const routes = require('./routes');
 //como routes é um arquivo usa-se ./
@@ -21,7 +23,6 @@ app.use(express.json());
 app.use(routes);
 //importante que essa linha venha abaixo da anterior
 
+app.use(errors());
 
-
-//essa aplicação "ouve" a porta 3333 
-app.listen(3333);
+module.exports = app;
